@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GO balls</title>
+  <title>ebiten Mouse Move Effect</title>
   <style>
     * {
-      overflow: hidden !important;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -22,7 +22,7 @@
     }
 
     const go = new Go()
-    WebAssembly.instantiateStreaming(fetch("balls.wasm"), go.importObject).then(result => {
+    WebAssembly.instantiateStreaming(fetch("ebiten_mouse_move_effect.wasm"), go.importObject).then(result => {
       go.run(result.instance)
     })
   </script>
