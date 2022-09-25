@@ -1,4 +1,4 @@
-module ebiten_balls
+module ebiten_mouse_move_effect
 
 go 1.19
 

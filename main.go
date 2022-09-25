@@ -1,7 +1,8 @@
 package main
 
 import (
-	"ebiten_balls/vec2d"
+	"ebiten_mouse_move_effect/utils"
+	"ebiten_mouse_move_effect/vec2d"
 	"image/color"
 	"log"
 	"math/rand"
@@ -23,18 +24,6 @@ var (
 	PreviousMouse vec2d.Vec2D
 )
 
-func MouseHasMoved() bool {
-	x, y := ebiten.CursorPosition()
-	Mouse.X = float64(x)
-	Mouse.Y = float64(y)
-
-	returnValue := !Mouse.IsEqualTo(PreviousMouse)
-
-	PreviousMouse = Mouse
-
-	return returnValue
-}
-
 func (game *Game) Update() error {
 	return nil
 }
@@ -42,7 +31,7 @@ func (game *Game) Update() error {
 func (game *Game) Draw(screen *ebiten.Image) {
 	screen.Fill(Black)
 
-	if MouseHasMoved() {
+	if utils.MouseHasMoved(&Mouse, &PreviousMouse) {
 		ebitenutil.DrawCircle(screen, Mouse.X, Mouse.Y, 30, Lime)
 	}
 }
